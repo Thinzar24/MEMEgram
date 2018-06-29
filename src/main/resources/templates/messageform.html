@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Cloudinary</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Concert+One|Indie+Flower|Pacifico" rel="stylesheet">
+    <link rel="stylesheet" href="css/css.css">
+    <!--<link rel="stylesheet" href="../static/css/css.css">-->
+</head>
+<body class="container">
+<br/> <br/>
+
+<div th:fragment="nav">
+    <div class="jumbotron text-center">
+        <h1><img id="gravatar" src="https://en.gravatar.com/avatar/f88d6a6bd36b282356d716d6d00f2eed" alt="Thinzar" img="img-fluid img-responsive rounded-circle"> Welcome to MEMEgram </a></h1>
+
+
+    </div>
+
+    <nav class="navbar navbar-expand-sm bg-light">
+
+        <!-- Links -->
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="/">View All Pictures</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/add">Add New Picture</a>
+            </li>
+        </ul>
+
+    </nav>
+</div>
+
+<h1>Upload your Picture</h1>
+<!--object actor has to be same with HomeController  -->
+<form method="POST" th:action="@{/add}" th:object="${meme}"
+      enctype="multipart/form-data">
+    Name:<input type="text" th:field="*{name}"/>
+    Description: <input type="text" th:field="*{Description}"/>
+
+    <input type="file" name="file"/> <br/> <br/>
+    <input type="submit" value="Submit"/>
+</form>
+
+</body>
+</html>

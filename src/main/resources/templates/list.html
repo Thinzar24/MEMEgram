@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <title>View Feed</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Concert+One|Indie+Flower|Pacifico" rel="stylesheet">
+    <link rel="stylesheet" href="css/css.css">
+    <th:block th:insert="base :: header"></th:block>
+</head>
+<body class="container">
+<div th:replace="base :: nav"></div>
+
+    <p>
+
+    <div th:each="meme : ${memezzzz}">
+        <h3 th:text="${meme.name}"></h3>
+        <div th:if="${meme.headshot} != null">
+            <img  th:src="${meme.headshot}" alt="Picture"/>
+            <hr/>
+        </div>
+        <h4 th:text="${meme.Description}"></h4>
+    <p>
+        <a th:href="@{/update/{id}(id=${meme.id})}">Update</a>
+        <a th:href="@{/detail/{id}(id=${meme.id})}">Details</a>
+        <a th:href="@{/delete/{id}(id=${meme.id})}">Delete</a>
+    </div>
+    </p>
+</div>
+</body>
+</html>
