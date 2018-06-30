@@ -11,8 +11,6 @@
 <body class="container">
 <div th:replace="base :: nav"></div>
 
-    <p>
-
     <div th:each="meme : ${memezzzz}">
         <h3 th:text="${meme.name}"></h3>
         <div th:if="${meme.headshot} != null">
@@ -22,6 +20,7 @@
         </div>
         <!--<h4 th:text="${meme.Description}"></h4>-->
     <p>
+
         <a th:href="@{/update/{id}(id=${meme.id})}">Update</a>
         <a th:href="@{/detail/{id}(id=${meme.id})}">Details</a>
         <a th:href="@{/delete/{id}(id=${meme.id})}">Delete</a>
